@@ -1,6 +1,5 @@
-
 --- statement for creating the database in case it doesnt exist
-CREATE DATABASE IF NOT EXISTS humanitarian_program;
+CREATE DATABASE humanitarian_program;
 
 -- Table 1: beneficiary_partner_data
 CREATE TABLE beneficiary_partner_data (
@@ -35,6 +34,24 @@ ALTER TABLE beneficiary_partner_data
     ADD CONSTRAINT fk_beneficiary_village
     FOREIGN KEY (village) REFERENCES village_locations (village);
 
+INSERT INTO village_locations
+(village_id, village, latitude, longitude, total_population)
+VALUES
+(1, 'Dharkenley', '2.0469', '45.3182', 5000),
+(2, 'Bulo-Kahin', '2.0560', '45.3250', 4200),
+(3, 'Hilo Kelyo', '2.0650', '45.3300', 3800),
+(4, 'Xubow', '2.1000', '45.3500', 6000),
+(5, 'Xiintooy', '2.1100', '45.3600', 4500),
+(6, 'Dhagax Jebis', '2.1200', '45.3700', 5200),
+(7, 'Filtare', '2.1300', '45.3800', 3900),
+(8, 'Howl-Wadaag', '2.1400', '45.3900', 4700),
+(9, 'Balcad', '2.1500', '45.4000', 5500),
+(10, 'Mareeray', '2.1600', '45.4100', 4300),
+(11, 'Kulmis', '2.1700', '45.4200', 6058),
+(12, 'Sabuun', '2.1800', '45.4300', 5100),
+(13, 'Bayaxaw', '2.1900', '45.4400', 3600),
+(14, 'Bayaxawo', '2.2000', '45.4500', 4000);
+
 INSERT INTO beneficiary_partner_data
 (partner_id, partner, village, beneficiaries, beneficiary_type)
 VALUES
@@ -56,24 +73,6 @@ VALUES
 (16, 'World Vision', 'Dharkenley', 700, 'Households'),
 (17, 'CARE', 'Bulo-Kahin', 550, 'Individuals'),
 (18, 'IRC', 'Hilo Kelyo', 900, 'Individuals');
-
-INSERT INTO village_locations
-(village_id, village, latitude, longitude, total_population)
-VALUES
-(1, 'Dharkenley', '2.0469', '45.3182', 5000),
-(2, 'Bulo-Kahin', '2.0560', '45.3250', 4200),
-(3, 'Hilo Kelyo', '2.0650', '45.3300', 3800),
-(4, 'Xubow', '2.1000', '45.3500', 6000),
-(5, 'Xiintooy', '2.1100', '45.3600', 4500),
-(6, 'Dhagax Jebis', '2.1200', '45.3700', 5200),
-(7, 'Filtare', '2.1300', '45.3800', 3900),
-(8, 'Howl-Wadaag', '2.1400', '45.3900', 4700),
-(9, 'Balcad', '2.1500', '45.4000', 5500),
-(10, 'Mareeray', '2.1600', '45.4100', 4300),
-(11, 'Kulmis', '2.1700', '45.4200', 6058),
-(12, 'Sabuun', '2.1800', '45.4300', 5100),
-(13, 'Bayaxaw', '2.1900', '45.4400', 3600),
-(14, 'Bayaxawo', '2.2000', '45.4500', 4000);
 
 INSERT INTO jurisdiction_hierarchy
 (id, name, type, parent_id)
@@ -100,6 +99,7 @@ VALUES
 (17, 'Sabuun', 'Village', 4),
 (18, 'Bayaxaw', 'Village', 4),
 (19, 'Bayaxawo', 'Village', 4);
+
 
 -- =====================================================
 -- TASK 1: EXPLORE THE DATA
